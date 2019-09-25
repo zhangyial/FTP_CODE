@@ -3,8 +3,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Describe: ftp¹¤¾ßÀà
- * Company: ÉñÖİÊıÂëĞÅÏ¢ÏµÍ³ÓĞÏŞ¹«Ë¾
+ * Describe: ftpå·¥å…·ç±»
  * Version: v1.0
  * User:xiudx
  * Date:2017/9/14 9:31
@@ -12,28 +11,28 @@ import java.util.*;
 public class FtpUtils {
 
 
-    // ´´½¨Ä¿Â¼
+    // åˆ›å»ºç›®å½•
     public static void createDir(String destDirName) {
         File dir = new File(destDirName);
         if (!dir.exists()) {
-            //²»´æÔÚÔò´´½¨Ä¿Â¼
+            //ä¸å­˜åœ¨åˆ™åˆ›å»ºç›®å½•
             dir.mkdir();
         }
     }
 
     /*
-        ¸ù¾İÏµÍ³µ±Ç°Ê±¼äµÃµ½Ç°Ò»ÌìºÍÇ°Á½ÌìµÄÏà¹ØÄêÔÂÈÕĞÅÏ¢
+        æ ¹æ®ç³»ç»Ÿå½“å‰æ—¶é—´å¾—åˆ°å‰ä¸€å¤©å’Œå‰ä¸¤å¤©çš„ç›¸å…³å¹´æœˆæ—¥ä¿¡æ¯
      */
     public static Map timeManage() {
         Map timemap = new HashMap();
-        Date dNow = new Date();   //µ±Ç°Ê±¼ä
-        Calendar calendar = Calendar.getInstance(); //µÃµ½ÈÕÀú
-        calendar.setTime(dNow);//°Ñµ±Ç°Ê±¼ä¸³¸øÈÕÀú
+        Date dNow = new Date();   //å½“å‰æ—¶é—´
+        Calendar calendar = Calendar.getInstance(); //å¾—åˆ°æ—¥å†
+        calendar.setTime(dNow);//æŠŠå½“å‰æ—¶é—´èµ‹ç»™æ—¥å†
         String[] defaultStartDate=new String[2];
         for(int i=0;i<2;i++){
-            calendar.add(Calendar.DAY_OF_MONTH, -1);  //ÉèÖÃÎªÇ°Ò»Ìì
-            String fileyear=String.valueOf(calendar.get(Calendar.YEAR));//»ñÈ¡Äê·İ
-            String filemonth=String.valueOf(calendar.get(Calendar.MONTH)+1);//»ñÈ¡Äê·İ
+            calendar.add(Calendar.DAY_OF_MONTH, -1);  //è®¾ç½®ä¸ºå‰ä¸€å¤©
+            String fileyear=String.valueOf(calendar.get(Calendar.YEAR));//è·å–å¹´ä»½
+            String filemonth=String.valueOf(calendar.get(Calendar.MONTH)+1);//è·å–å¹´ä»½
             if(filemonth.length()==1){
                 filemonth="0"+filemonth;
             }
@@ -46,7 +45,7 @@ public class FtpUtils {
     }
 
 
-    //¸ù¾İ¹æÔòµÃµ½ÎÄ¼şÃûµÄÉú³É·½·¨
+    //æ ¹æ®è§„åˆ™å¾—åˆ°æ–‡ä»¶åçš„ç”Ÿæˆæ–¹æ³•
     public static String getFileName() {
         String filename = "INO" + "" + timeManage().get("filedate") + "00TPCPM";
         filename = filename + ConfigMessage.getSkyUnionPayReportSdjgdm();
